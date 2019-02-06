@@ -33,6 +33,9 @@
 		2C4150A120093A1B008F7132 /* libSiv3D.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4150A020093A1B008F7132 /* libSiv3D.a */; };
 		2C4150A320093A21008F7132 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4150A220093A21008F7132 /* libz.a */; };
 		2CC7F9881F45930A0071A239 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC7F9871F45930A0071A239 /* OpenAL.framework */; };
+		323117A022070EC80024BA30 /* SystemMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3231179F22070EC80024BA30 /* SystemMain.cpp */; };
+		323117A4220B25CE0024BA30 /* Looper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 323117A2220B25CE0024BA30 /* Looper.cpp */; };
+		323117A7220B27C80024BA30 /* Define.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 323117A6220B27C80024BA30 /* Define.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +83,12 @@
 		2CAAB0EA1EE663680000A06D /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libz.a; sourceTree = "<group>"; };
 		2CC7F9841F4592DA0071A239 /* langelscript.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = langelscript.a; sourceTree = "<group>"; };
 		2CC7F9871F45930A0071A239 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		3231179E22070E000024BA30 /* SystemMain.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SystemMain.hpp; sourceTree = "<group>"; };
+		3231179F22070EC80024BA30 /* SystemMain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SystemMain.cpp; sourceTree = "<group>"; };
+		323117A2220B25CE0024BA30 /* Looper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Looper.cpp; sourceTree = "<group>"; };
+		323117A3220B25CE0024BA30 /* Looper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Looper.hpp; sourceTree = "<group>"; };
+		323117A5220B27150024BA30 /* Define.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Define.hpp; sourceTree = "<group>"; };
+		323117A6220B27C80024BA30 /* Define.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Define.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +163,8 @@
 		2C1778981CE0AA7C00BB8AD0 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				2C1778991CE0AA7C00BB8AD0 /* Main.cpp */,
+				3231179D22070DB40024BA30 /* Header */,
+				3231179C22070D9F0024BA30 /* Source */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -279,6 +289,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3231179C22070D9F0024BA30 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2C1778991CE0AA7C00BB8AD0 /* Main.cpp */,
+				3231179F22070EC80024BA30 /* SystemMain.cpp */,
+				323117A2220B25CE0024BA30 /* Looper.cpp */,
+				323117A6220B27C80024BA30 /* Define.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		3231179D22070DB40024BA30 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				323117A3220B25CE0024BA30 /* Looper.hpp */,
+				3231179E22070E000024BA30 /* SystemMain.hpp */,
+				323117A5220B27150024BA30 /* Define.hpp */,
+			);
+			name = Header;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -349,7 +380,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				323117A4220B25CE0024BA30 /* Looper.cpp in Sources */,
 				2C17789A1CE0AA7C00BB8AD0 /* Main.cpp in Sources */,
+				323117A7220B27C80024BA30 /* Define.cpp in Sources */,
+				323117A022070EC80024BA30 /* SystemMain.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

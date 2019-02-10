@@ -11,13 +11,13 @@
 
 class SystemMain final {
 public:
-    SystemMain() = default;
+    SystemMain() = default;
     
     bool init();
     bool main();
     bool exit();
 };
-
+
 #endif /* SystemMain_hpp*/
 
 

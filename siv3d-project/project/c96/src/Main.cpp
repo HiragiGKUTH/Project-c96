@@ -1,13 +1,13 @@
 #include <Siv3D.hpp>
 
-#include "SystemMain.h"
+#include "SystemMain.hpp"
 
 void Main()
 {
     SystemMain system;
     
     if (system.init()) {
-        system.main()
+        system.main();
     }
-    system.exit();
+    system.exit();
 }

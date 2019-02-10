@@ -9,12 +9,13 @@
 #ifndef Define_hpp
 #define Define_hpp
 
+#include <Siv3D.hpp>
+
 class Define final {
 public:
-    const static int WINDOW_W;
-    const static int WINDOW_H;
-    
-    const static double PI;
+    const static Size WindowSize;
+
+    const static double PI;
 };
 
 

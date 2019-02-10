@@ -9,7 +9,6 @@
 #include <Siv3D.hpp>
 #include "Define.hpp"
 
-const int Define::WINDOW_W = 1920;
-const int Define::WINDOW_H = 1080;
+const Size Define::WindowSize = Size(1920, 1080);
 
 const double Define::PI = Math::Pi;

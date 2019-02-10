@@ -1,11 +1,3 @@
-//
-//  SystemMain.hpp
-//  c96
-//
-//  Created by 嶌岡柊也 on 2019/02/03.
-//  Copyright © 2019 gkuth. All rights reserved.
-//
-
 #ifndef SystemMain_hpp
 #define SystemMain_hpp
 

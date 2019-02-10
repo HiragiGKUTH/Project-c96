@@ -1,11 +1,3 @@
-//
-//  SceneParameter.hpp
-//  c96
-//
-//  Created by 嶌岡柊也 on 2019/02/10.
-//  Copyright © 2019 gkuth. All rights reserved.
-//
-
 #ifndef SceneParameter_hpp
 #define SceneParameter_hpp
 

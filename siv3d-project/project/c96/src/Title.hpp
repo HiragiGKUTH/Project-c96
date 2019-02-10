@@ -1,11 +1,3 @@
-//
-//  Title.hpp
-//  c96
-//
-//  Created by 嶌岡柊也 on 2019/02/09.
-//  Copyright © 2019 gkuth. All rights reserved.
-//
-
 #ifndef Title_hpp
 #define Title_hpp
 

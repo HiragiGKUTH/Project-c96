@@ -23,12 +23,16 @@ bool Looper::loop() {
     
     // loop initalize
     const auto transformer = ScalableWindow::CreateTransformer();
+    
+    //Debug Information
+    Print << Profiler::FPS() << U" FPS";
 
     if (!manager.update()) {
         return false;
     }
     
     // loop finalize
+    ClearPrint();
     ScalableWindow::DrawBlackBars();
     
     return true;

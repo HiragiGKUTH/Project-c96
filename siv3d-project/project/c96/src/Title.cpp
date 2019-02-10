@@ -29,6 +29,21 @@ Title::Title(const InitData &init) : IScene(init) {
 
 void Title::update() {
     
+    // menu update
+    for (auto i : step(menu_strings.size())) {
+        if (menu_font(menu_strings[i]).region(menu_poses[i]).mouseOver()) {
+            menu_strings[i].shuffle();
+        }
+        if (menu_font(menu_strings[i]).region(menu_poses[i]).leftClicked()) {
+            switch (i) {
+                case 0:
+                    changeScene(U"Game");
+                    break;
+                default:
+                    Print << U"Not implemented yet";
+            }
+        }
+    }
 }
 
 void Title::draw() const {

@@ -8,7 +8,7 @@
 
 class Game : public MyApp::Scene {
 private:
-    
+    Font dummy;
 public:
     Game(const InitData &init);
     void update() override;

@@ -23,6 +23,7 @@ bool Looper::loop() {
     
     // loop initalize
     const auto transformer = ScalableWindow::CreateTransformer();
+    ClearPrint();
     
     //Debug Information
     Print << Profiler::FPS() << U" FPS";
@@ -32,7 +33,6 @@ bool Looper::loop() {
     }
     
     // loop finalize
-    ClearPrint();
     ScalableWindow::DrawBlackBars();
     
     return true;

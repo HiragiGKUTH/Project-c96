@@ -5,7 +5,7 @@
 #include <HamFramework.hpp>
 
 struct GameData {
-    String difficulity = U"";
+    String difficulty = U"";
 };
 
 using MyApp = SceneManager<String, GameData>;

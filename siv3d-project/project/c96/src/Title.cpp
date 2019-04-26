@@ -7,7 +7,7 @@
 Title::Title(const InitData &init) : IScene(init) {
     // Title initialize
     this->title_string = GameInfo::Title;
-    this->title_font = Font(GameInfo::TitleFontSize);
+    this->title_font = FontAsset(U"Title");
     this->title_pos = Vec2(Define::WindowSize/8);
 
     // Set menu texts
@@ -19,7 +19,7 @@ Title::Title(const InitData &init) : IScene(init) {
     };
     
     this->menu_strings = this->menu_strings_base;
-    this->menu_font = Font(GameInfo::TitleMenuFontSize);
+    this->menu_font = FontAsset(U"TitleMenu");
     
     // menu position initialize
     {
@@ -46,7 +46,7 @@ void Title::update() {
         if (menu_font(menu_strings[i]).region(menu_poses[i]).leftClicked()) {
             switch (i) {
                 case 0:
-                    changeScene(U"Game");
+                    changeScene(U"Select");
                     break;
                 case 3:
                     System::Exit();

@@ -11,4 +11,5 @@ void Game::update() {
 
 void Game::draw() const {
     dummy(U"Game Scene").draw();
+    Print << getData().difficulty;
 }

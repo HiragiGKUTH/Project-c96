@@ -4,11 +4,14 @@
 #include <Siv3D.hpp>
 #include <HamFramework.hpp>
 #include "GameData.hpp"
+#include "SelectionBox.hpp"
 
 
 class Select : public MyApp::Scene {
 private:
-    Font dummy;
+    Array<String> difficulty_names;
+    Array<String> difficulty_descriptions;
+    Array<SelectionBox> selection_boxes;
 public:
     Select(const InitData &init);
     void update() override;

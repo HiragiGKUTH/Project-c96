@@ -1,14 +1,27 @@
-//
-//  SelectionBox.hpp
-//  c96
-//
-//  Created by 嶌岡柊也 on 2019/04/25.
-//  Copyright © 2019 gkuth. All rights reserved.
-//
-
 #ifndef SelectionBox_hpp
 #define SelectionBox_hpp
 
-#include <stdio.h>
+#include <Siv3D.hpp>
+
+class SelectionBox {
+private:
+    Font text_font;
+    String text;
+    Color box_color;
+    double line_thickness;
+    RectF box;
+    Vec2 pos;
+public:
+    SelectionBox(String& text, Color box_color = Palette::White, double line_thickness = 2.0);
+    void draw() const;
+    
+    // setter
+    void setPos(Vec2 pos);
+    void setBoxColor(Color color);
+    
+    // getter
+    RectF getRegion() const ;
+    String getText() const ;
+};
 
 #endif /* SelectionBox_hpp */

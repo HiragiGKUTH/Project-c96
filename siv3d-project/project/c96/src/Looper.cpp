@@ -4,12 +4,15 @@
 #include "Looper.hpp"
 
 #include "Title.hpp"
+#include "Select.hpp"
 #include "Game.hpp"
+
 
 
 Looper::Looper() {
     this->LoadAssets();
     manager.add<Title>(U"Title");
+    manager.add<Select>(U"Select");
     manager.add<Game>(U"Game");
     manager.setFadeColor(GameInfo::FadeColor);
 }
@@ -41,5 +44,8 @@ bool Looper::loop() {
 }
 
 bool Looper::LoadAssets() {
+    FontAsset::Register(U"Title", GameInfo::TitleFontSize);
+    FontAsset::Register(U"TitleMenu", GameInfo::TitleMenuFontSize);
+    FontAsset::Register(U"SelectionBox", GameInfo::SelectionBoxFontSize);
     return true;
 }

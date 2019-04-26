@@ -33,6 +33,8 @@
 		2C4150A120093A1B008F7132 /* libSiv3D.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4150A020093A1B008F7132 /* libSiv3D.a */; };
 		2C4150A320093A21008F7132 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4150A220093A21008F7132 /* libz.a */; };
 		2CC7F9881F45930A0071A239 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC7F9871F45930A0071A239 /* OpenAL.framework */; };
+		322A69002271A97700527790 /* Select.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 322A68FF2271A97700527790 /* Select.cpp */; };
+		322A69062271B7BB00527790 /* SelectionBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 322A69042271B7BB00527790 /* SelectionBox.cpp */; };
 		323117A022070EC80024BA30 /* SystemMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3231179F22070EC80024BA30 /* SystemMain.cpp */; };
 		323117A4220B25CE0024BA30 /* Looper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 323117A2220B25CE0024BA30 /* Looper.cpp */; };
 		323117A7220B27C80024BA30 /* Define.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 323117A6220B27C80024BA30 /* Define.cpp */; };
@@ -85,6 +87,10 @@
 		2CAAB0EA1EE663680000A06D /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libz.a; sourceTree = "<group>"; };
 		2CC7F9841F4592DA0071A239 /* langelscript.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = langelscript.a; sourceTree = "<group>"; };
 		2CC7F9871F45930A0071A239 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		322A68FE2271A97700527790 /* Select.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Select.hpp; sourceTree = "<group>"; };
+		322A68FF2271A97700527790 /* Select.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Select.cpp; sourceTree = "<group>"; };
+		322A69042271B7BB00527790 /* SelectionBox.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SelectionBox.cpp; sourceTree = "<group>"; };
+		322A69052271B7BB00527790 /* SelectionBox.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SelectionBox.hpp; sourceTree = "<group>"; };
 		3231179E22070E000024BA30 /* SystemMain.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SystemMain.hpp; sourceTree = "<group>"; };
 		3231179F22070EC80024BA30 /* SystemMain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SystemMain.cpp; sourceTree = "<group>"; };
 		323117A2220B25CE0024BA30 /* Looper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Looper.cpp; sourceTree = "<group>"; };
@@ -296,6 +302,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		322A69022271AB0E00527790 /* Select */ = {
+			isa = PBXGroup;
+			children = (
+				322A68FF2271A97700527790 /* Select.cpp */,
+				322A68FE2271A97700527790 /* Select.hpp */,
+				322A69042271B7BB00527790 /* SelectionBox.cpp */,
+				322A69052271B7BB00527790 /* SelectionBox.hpp */,
+			);
+			name = Select;
+			sourceTree = "<group>";
+		};
 		3231179C22070D9F0024BA30 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +332,7 @@
 		323117A8220ED7320024BA30 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				322A69022271AB0E00527790 /* Select */,
 				323117AB220EDBE60024BA30 /* Game */,
 				323117AA220EDBDE0024BA30 /* Title */,
 				323117B3220FF0460024BA30 /* GameData.hpp */,
@@ -379,6 +397,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -410,6 +429,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				322A69062271B7BB00527790 /* SelectionBox.cpp in Sources */,
+				322A69002271A97700527790 /* Select.cpp in Sources */,
 				323117B1220EDEAE0024BA30 /* Title.cpp in Sources */,
 				323117A4220B25CE0024BA30 /* Looper.cpp in Sources */,
 				2C17789A1CE0AA7C00BB8AD0 /* Main.cpp in Sources */,

@@ -1,5 +1,6 @@
 #include <Siv3D.hpp>
 #include <HamFramework.hpp>
+#include "GameInfo.hpp"
 #include "Looper.hpp"
 
 #include "Title.hpp"
@@ -10,6 +11,7 @@ Looper::Looper() {
     this->LoadAssets();
     manager.add<Title>(U"Title");
     manager.add<Game>(U"Game");
+    manager.setFadeColor(GameInfo::FadeColor);
 }
 
 Looper::~Looper() {

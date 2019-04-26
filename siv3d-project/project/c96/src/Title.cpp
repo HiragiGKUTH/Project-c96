@@ -10,12 +10,15 @@ Title::Title(const InitData &init) : IScene(init) {
     this->title_font = Font(GameInfo::TitleFontSize);
     this->title_pos = Vec2(Define::WindowSize/8);
 
-    this->menu_strings = {
+    // Set menu texts
+    this->menu_strings_base = {
         GameInfo::MenuGameStart,
         GameInfo::MenuGameConfig,
         GameInfo::MenuGameCredit,
         GameInfo::MenuGameExit
     };
+    
+    this->menu_strings = this->menu_strings_base;
     this->menu_font = Font(GameInfo::TitleMenuFontSize);
     
     // menu position initialize
@@ -28,16 +31,25 @@ Title::Title(const InitData &init) : IScene(init) {
 }
 
 void Title::update() {
-    
     // menu update
     for (auto i : step(menu_strings.size())) {
-        if (menu_font(menu_strings[i]).region(menu_poses[i]).mouseOver()) {
-            menu_strings[i].shuffle();
+        // Text shuffle when mouse over
+        if (System::FrameCount()%5 == 0) {
+            if (menu_font(menu_strings[i]).region(menu_poses[i]).mouseOver()) {
+                menu_strings[i].shuffle();
+            } else {
+                menu_strings[i] = menu_strings_base[i];
+            }
         }
+        
+        // change scene
         if (menu_font(menu_strings[i]).region(menu_poses[i]).leftClicked()) {
             switch (i) {
                 case 0:
                     changeScene(U"Game");
+                    break;
+                case 3:
+                    System::Exit();
                     break;
                 default:
                     Print << U"Not implemented yet";

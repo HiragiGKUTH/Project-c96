@@ -12,6 +12,7 @@ private:
     Font title_font;
     Vec2 title_pos;
     
+    Array<String> menu_strings_base;
     Array<String> menu_strings;
     Font menu_font;
     Array<Vec2> menu_poses;

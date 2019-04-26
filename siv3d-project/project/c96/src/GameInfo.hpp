@@ -8,8 +8,8 @@ namespace GameInfo {
     const String Version = U"Alpha-0.0.1";
     const ColorF FadeColor = ColorF(1.0, 1.0, 1.0);
     
-    const int32 TitleFontSize = 48;
-    const int32 TitleMenuFontSize = 32;
+    const int32 TitleFontSize = 64;
+    const int32 TitleMenuFontSize = 48;
     
     const String MenuGameStart = U"StartGame!";
     const String MenuGameExit = U"ExitGame!";

@@ -8,9 +8,9 @@
 void SetUpFullScreen() {
     Window::SetBaseSize(Define::WindowSize);
     const auto[displayIndex, displayMode]
-    = OptimalScreen::Get(OptimalScreen::Preference::AspectMin, Define::WindowSize);
+        = OptimalScreen::Get(OptimalScreen::Preference::AspectMin, Define::WindowSize);
     Graphics::SetFullScreen(true, displayMode.size, displayIndex, displayMode.refreshRateHz);
-    Graphics::SetBackground(ColorF(0.0, 0.0, 0.0));
+    Graphics::SetBackground(ColorF(0.2, 0.2, 0.2));
 }
 
 bool SystemMain::init() {

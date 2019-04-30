@@ -1,11 +1,3 @@
-//
-//  SelectionBox.cpp
-//  c96
-//
-//  Created by 嶌岡柊也 on 2019/04/25.
-//  Copyright © 2019 gkuth. All rights reserved.
-//
-
 #include "SelectionBox.hpp"
 
 SelectionBox::SelectionBox(String& text, Color box_color, double line_thickness) {

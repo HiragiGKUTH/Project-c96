@@ -12,10 +12,10 @@ private:
     double ang;
     Color color;
     Circle collision;
-public:
-    Shot(Vec2 pos, double ang, double speed);
-    virtual ~Shot() = default;
     
+public:
+    Shot(Vec2 pos, double speed, double ang);
+    virtual ~Shot() = default;
     bool update() override;
     void draw() const override;
     

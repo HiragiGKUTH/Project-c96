@@ -1,5 +1,6 @@
 #include "Player.hpp"
 
+
 Player::Player() {
     this->pos = Vec2(Define::WindowSize.x/2, Define::WindowSize.y/2);
     this->collision.set(this->pos, 16.0);
@@ -19,7 +20,6 @@ void Player::draw() const {
     }
     Print << pos;
 }
-
 
 void Player::move() {
     Vec2 tmp_vel = Vec2::Zero();

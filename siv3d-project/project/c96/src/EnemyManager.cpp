@@ -1,6 +1,7 @@
 #include "EnemyManager.hpp"
 #include "Enemy.hpp"
 
+
 EnemyManager::EnemyManager() {
     this->enemyList.push_back(std::make_shared<Enemy>(Vec2(240,240), 1.0, ToRadians(90)));
 }

@@ -4,6 +4,7 @@
 #include <Siv3D.hpp>
 #include "AbstractEnemy.hpp"
 
+
 class Enemy : public AbstractEnemy {
 private:
     void move();
@@ -11,7 +12,6 @@ private:
 public:
     Enemy(Vec2 pos, double speed, double ang);
     virtual ~Enemy() = default;
-    
     void draw() const override;
 };
 

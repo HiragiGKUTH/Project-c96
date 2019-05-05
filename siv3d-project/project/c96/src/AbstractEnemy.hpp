@@ -4,6 +4,7 @@
 #include <Siv3D.hpp>
 #include "Task.hpp"
 
+
 class AbstractEnemy : public Task {
 protected:
     Vec2 pos;
@@ -14,7 +15,6 @@ protected:
 public:
     AbstractEnemy(Vec2 pos);
     virtual ~AbstractEnemy() = default;
-    
     bool update() override;
 };
 

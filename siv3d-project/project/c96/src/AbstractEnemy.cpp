@@ -1,5 +1,6 @@
 #include "AbstractEnemy.hpp"
 
+
 AbstractEnemy::AbstractEnemy(Vec2 pos) {
     this->pos = pos;
     this->speed = 0;

@@ -14,12 +14,11 @@ private:
     Vec2 vel;
     Circle collision;
     const double speed = 16.0;
-    
     Array<std::shared_ptr<Shot>> shotList;
+    
 public:
     Player();
     virtual ~Player() = default;
-    
     bool update() override;
     void draw() const override;
     

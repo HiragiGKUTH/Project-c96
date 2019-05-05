@@ -1,6 +1,7 @@
 #include "Shot.hpp"
 
-Shot::Shot(Vec2 pos, double ang, double speed) {
+
+Shot::Shot(Vec2 pos, double speed, double ang) {
     this->pos = pos;
     this->vel = Vec2(speed, 0).rotated(ang);
     this->collision = Circle(8);

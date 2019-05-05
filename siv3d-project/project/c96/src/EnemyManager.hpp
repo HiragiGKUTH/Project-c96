@@ -6,6 +6,7 @@
 #include "AbstractEnemy.hpp"
 #include "Task.hpp"
 
+
 class EnemyManager : public Task {
 private:
     Array<std::shared_ptr<AbstractEnemy>> enemyList;
@@ -13,7 +14,6 @@ private:
 public:
     EnemyManager();
     ~EnemyManager() = default;
-    
     bool update() override;
     void draw() const override;
 };

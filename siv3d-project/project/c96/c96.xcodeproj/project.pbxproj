@@ -42,6 +42,9 @@
 		323117B1220EDEAE0024BA30 /* Title.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 323117AF220EDEAE0024BA30 /* Title.cpp */; };
 		326C526E2278835A00818B13 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 326C526C2278835A00818B13 /* Player.cpp */; };
 		32CF1C35227EAF43001382E2 /* Shot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32CF1C33227EAF43001382E2 /* Shot.cpp */; };
+		32CF1C39227F0209001382E2 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32CF1C37227F0209001382E2 /* Enemy.cpp */; };
+		32CF1C3C227F032C001382E2 /* EnemyManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32CF1C3A227F032C001382E2 /* EnemyManager.cpp */; };
+		32CF1C42227F0F2B001382E2 /* AbstractEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32CF1C41227F0F2B001382E2 /* AbstractEnemy.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +113,12 @@
 		326C526D2278835A00818B13 /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
 		32CF1C33227EAF43001382E2 /* Shot.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shot.cpp; sourceTree = "<group>"; };
 		32CF1C34227EAF43001382E2 /* Shot.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shot.hpp; sourceTree = "<group>"; };
+		32CF1C37227F0209001382E2 /* Enemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
+		32CF1C38227F0209001382E2 /* Enemy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Enemy.hpp; sourceTree = "<group>"; };
+		32CF1C3A227F032C001382E2 /* EnemyManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyManager.cpp; sourceTree = "<group>"; };
+		32CF1C3B227F032C001382E2 /* EnemyManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EnemyManager.hpp; sourceTree = "<group>"; };
+		32CF1C3F227F0436001382E2 /* AbstractEnemy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AbstractEnemy.hpp; sourceTree = "<group>"; };
+		32CF1C41227F0F2B001382E2 /* AbstractEnemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractEnemy.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +367,7 @@
 		323117AB220EDBE60024BA30 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				32CF1C36227F0132001382E2 /* Enemy */,
 				326C5268227881C900818B13 /* Player */,
 				323117AC220EDC050024BA30 /* Game.cpp */,
 				323117AD220EDC050024BA30 /* Game.hpp */,
@@ -392,6 +402,27 @@
 				32CF1C34227EAF43001382E2 /* Shot.hpp */,
 			);
 			name = Shot;
+			sourceTree = "<group>";
+		};
+		32CF1C36227F0132001382E2 /* Enemy */ = {
+			isa = PBXGroup;
+			children = (
+				32CF1C3D227F03A9001382E2 /* types */,
+				32CF1C3A227F032C001382E2 /* EnemyManager.cpp */,
+				32CF1C3B227F032C001382E2 /* EnemyManager.hpp */,
+				32CF1C3F227F0436001382E2 /* AbstractEnemy.hpp */,
+				32CF1C41227F0F2B001382E2 /* AbstractEnemy.cpp */,
+			);
+			name = Enemy;
+			sourceTree = "<group>";
+		};
+		32CF1C3D227F03A9001382E2 /* types */ = {
+			isa = PBXGroup;
+			children = (
+				32CF1C37227F0209001382E2 /* Enemy.cpp */,
+				32CF1C38227F0209001382E2 /* Enemy.hpp */,
+			);
+			name = types;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -465,6 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32CF1C42227F0F2B001382E2 /* AbstractEnemy.cpp in Sources */,
 				322A69062271B7BB00527790 /* SelectionBox.cpp in Sources */,
 				322A69002271A97700527790 /* Select.cpp in Sources */,
 				326C526E2278835A00818B13 /* Player.cpp in Sources */,
@@ -474,6 +506,8 @@
 				323117A7220B27C80024BA30 /* Define.cpp in Sources */,
 				323117A022070EC80024BA30 /* SystemMain.cpp in Sources */,
 				323117AE220EDC050024BA30 /* Game.cpp in Sources */,
+				32CF1C39227F0209001382E2 /* Enemy.cpp in Sources */,
+				32CF1C3C227F032C001382E2 /* EnemyManager.cpp in Sources */,
 				32CF1C35227EAF43001382E2 /* Shot.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

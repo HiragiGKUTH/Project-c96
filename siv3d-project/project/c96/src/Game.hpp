@@ -7,12 +7,14 @@
 #include "GameData.hpp"
 
 #include "Player.hpp"
+#include "EnemyManager.hpp"
 
 
 class Game : public MyApp::Scene {
 private:
     Font dummy;
     std::shared_ptr<Player> player;
+    std::shared_ptr<EnemyManager> enemyManager;
 public:
     Game(const InitData &init);
     void update() override;

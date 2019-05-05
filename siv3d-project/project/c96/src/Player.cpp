@@ -2,7 +2,7 @@
 
 Player::Player() {
     this->pos = Vec2(Define::WindowSize.x/2, Define::WindowSize.y/2);
-    this->collision.set(this->pos, 4.0);
+    this->collision.set(this->pos, 16.0);
 }
 
 bool Player::update() {
@@ -40,10 +40,8 @@ void Player::move() {
 }
 
 void Player::shot() {
-    if (System::FrameCount() % 1 == 0) {
-        for (auto i : step(100)) {
-            shotList << std::make_shared<Shot>(pos, ToRadians(System::FrameCount()*i), 2);
-        }
+    if (System::FrameCount() % 10 == 0) {
+        shotList << std::make_shared<Shot>(pos, ToRadians(270), 10.0);
     }
     
     for (auto& shot : shotList) {

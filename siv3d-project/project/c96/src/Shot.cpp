@@ -3,7 +3,7 @@
 Shot::Shot(Vec2 pos, double ang, double speed) {
     this->pos = pos;
     this->vel = Vec2(speed, 0).rotated(ang);
-    this->collision = Circle(4);
+    this->collision = Circle(8);
 }
 
 bool Shot::update() {
@@ -15,3 +15,4 @@ bool Shot::update() {
 void Shot::draw() const {
     collision.draw();
 }
+

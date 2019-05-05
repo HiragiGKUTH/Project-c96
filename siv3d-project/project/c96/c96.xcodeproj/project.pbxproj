@@ -41,6 +41,7 @@
 		323117AE220EDC050024BA30 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 323117AC220EDC050024BA30 /* Game.cpp */; };
 		323117B1220EDEAE0024BA30 /* Title.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 323117AF220EDEAE0024BA30 /* Title.cpp */; };
 		326C526E2278835A00818B13 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 326C526C2278835A00818B13 /* Player.cpp */; };
+		32CF1C35227EAF43001382E2 /* Shot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32CF1C33227EAF43001382E2 /* Shot.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,8 @@
 		326C526A2278820D00818B13 /* Task.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Task.hpp; sourceTree = "<group>"; };
 		326C526C2278835A00818B13 /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		326C526D2278835A00818B13 /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
+		32CF1C33227EAF43001382E2 /* Shot.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shot.cpp; sourceTree = "<group>"; };
+		32CF1C34227EAF43001382E2 /* Shot.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shot.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,10 +378,20 @@
 		326C5268227881C900818B13 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				32CF1C32227EAEFF001382E2 /* Shot */,
 				326C526C2278835A00818B13 /* Player.cpp */,
 				326C526D2278835A00818B13 /* Player.hpp */,
 			);
 			name = Player;
+			sourceTree = "<group>";
+		};
+		32CF1C32227EAEFF001382E2 /* Shot */ = {
+			isa = PBXGroup;
+			children = (
+				32CF1C33227EAF43001382E2 /* Shot.cpp */,
+				32CF1C34227EAF43001382E2 /* Shot.hpp */,
+			);
+			name = Shot;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,6 +474,7 @@
 				323117A7220B27C80024BA30 /* Define.cpp in Sources */,
 				323117A022070EC80024BA30 /* SystemMain.cpp in Sources */,
 				323117AE220EDC050024BA30 /* Game.cpp in Sources */,
+				32CF1C35227EAF43001382E2 /* Shot.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

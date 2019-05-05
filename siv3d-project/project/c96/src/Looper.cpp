@@ -32,6 +32,7 @@ bool Looper::loop() {
     
     //Debug Information
     Print << Profiler::FPS() << U" FPS";
+    Print << System::DeltaTime()*1000 << U" ms";
 
     if (!manager.update()) {
         return false;

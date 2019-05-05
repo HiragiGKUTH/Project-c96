@@ -7,11 +7,16 @@ Player::Player() {
 
 bool Player::update() {
     move();
+    shot();
     return true;
 }
 
 void Player::draw() const {
     collision.draw();
+    Print << shotList.size() << U" Shots";
+    for (auto& shot : shotList) {
+        shot->draw();
+    }
     Print << pos;
 }
 
@@ -32,4 +37,16 @@ void Player::move() {
     //apply position
     pos.moveBy(tmp_vel*speed);
     collision.setPos(pos);
+}
+
+void Player::shot() {
+    if (System::FrameCount() % 1 == 0) {
+        for (auto i : step(100)) {
+            shotList << std::make_shared<Shot>(pos, ToRadians(System::FrameCount()*i), 2);
+        }
+    }
+    
+    for (auto& shot : shotList) {
+        shot->update();
+    }
 }

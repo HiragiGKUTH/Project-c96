@@ -3,6 +3,7 @@
 
 #include <Siv3D.hpp>
 #include <HamFramework.hpp>
+#include <memory>
 #include "GameData.hpp"
 
 #include "Player.hpp"
@@ -11,7 +12,7 @@
 class Game : public MyApp::Scene {
 private:
     Font dummy;
-    Player player;
+    std::shared_ptr<Player> player;
 public:
     Game(const InitData &init);
     void update() override;

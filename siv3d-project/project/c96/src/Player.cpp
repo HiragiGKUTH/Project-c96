@@ -41,10 +41,18 @@ void Player::move() {
 
 void Player::shot() {
     if (System::FrameCount() % 10 == 0) {
-        shotList << std::make_shared<Shot>(pos, ToRadians(270), 10.0);
+        shotList << std::make_shared<Shot>(pos, 10.0, ToRadians(270));
     }
     
-    for (auto& shot : shotList) {
-        shot->update();
+    // shot updates
+    {
+        unsigned long shotNum = shotList.size();
+        for (int i = 0;i < shotNum; ++i) {
+            // delete shot if outside of game area
+            if (!shotList.at(i)->update()) {
+                shotList.remove_at(i);
+                shotNum--;
+            }
+        }
     }
 }

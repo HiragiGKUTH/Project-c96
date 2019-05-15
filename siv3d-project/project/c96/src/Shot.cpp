@@ -10,10 +10,15 @@ Shot::Shot(Vec2 pos, double speed, double ang) {
 bool Shot::update() {
     pos.moveBy(vel);
     collision.setPos(pos);
-    return true;
+    return isInGameArea();
 }
 
 void Shot::draw() const {
     collision.draw();
+}
+
+// return True if a Shot is in game area
+bool Shot::isInGameArea() {
+    return Window::ClientRect().intersects(collision);
 }
 

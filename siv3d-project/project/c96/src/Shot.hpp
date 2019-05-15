@@ -21,6 +21,7 @@ public:
     
 private:
     void move();
+    bool isInGameArea();
 };
 
 #endif /* Shot_hpp */

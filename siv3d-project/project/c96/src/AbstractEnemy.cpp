@@ -16,5 +16,5 @@ bool AbstractEnemy::update() {
 
 // return True if a Enemy in game area
 bool AbstractEnemy::isInGameArea() {
-    return Rect(Window::Width(), Window::Height()).intersects(Circle(pos, 1));
+    return Window::ClientRect().intersects(Circle(pos, 1));
 }

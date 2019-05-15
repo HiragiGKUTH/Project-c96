@@ -16,6 +16,9 @@ public:
     AbstractEnemy(Vec2 pos);
     virtual ~AbstractEnemy() = default;
     bool update() override;
+    
+protected:
+    bool isInGameArea();
 };
 
 #endif /* AbstractEnemy_hpp */

@@ -8,7 +8,9 @@ EnemyManager::EnemyManager() {
 
 bool EnemyManager::update() {
     for (auto& enemy : enemyList) {
-        enemy->update();
+        if (!enemy->update()) {
+            enemyList.remove(enemy);
+        }
     }
     return true;
 }

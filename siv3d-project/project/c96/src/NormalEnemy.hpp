@@ -5,13 +5,13 @@
 #include "AbstractEnemy.hpp"
 
 
-class Enemy : public AbstractEnemy {
+class NormalEnemy : public AbstractEnemy {
 private:
     void move();
     
 public:
-    Enemy(Vec2 pos, double speed, double ang);
-    virtual ~Enemy() = default;
+    NormalEnemy(Vec2 pos, double speed, double ang);
+    virtual ~NormalEnemy() = default;
     void draw() const override;
 };
 

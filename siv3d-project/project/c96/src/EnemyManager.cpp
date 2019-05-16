@@ -1,9 +1,9 @@
 #include "EnemyManager.hpp"
-#include "Enemy.hpp"
+#include "NormalEnemy.hpp"
 
 
 EnemyManager::EnemyManager() {
-    this->enemyList.push_back(std::make_shared<Enemy>(Vec2(240,240), 10.0, ToRadians(90)));
+    this->enemyList.push_back(std::make_shared<NormalEnemy>(Vec2(240,240), 10.0, ToRadians(90)));
 }
 
 bool EnemyManager::update() {

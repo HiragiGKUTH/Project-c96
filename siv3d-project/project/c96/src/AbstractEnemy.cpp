@@ -12,12 +12,16 @@ bool AbstractEnemy::update() {
     vel.set(Vec2(speed, 0).rotated(ang));
     pos.moveBy(vel);
     collision.setPos(pos);
+    cnt++;
     return isInGameArea();
 }
 
 // return True if a Enemy in game area
 bool AbstractEnemy::isInGameArea() {
-    return Window::ClientRect().intersects(Circle(pos, 1));
+    if (cnt < beginDurationFrame) {
+        return true;
+    }
+    return Window::ClientRect().intersects(collision);
 }
 
 void AbstractEnemy::setCollisionSize(double r) {

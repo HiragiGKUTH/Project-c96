@@ -17,6 +17,8 @@ protected:
     double collisionRadius;
     Circle collision;
     
+    const beginDurationFrame = 120;
+    
 public:
     AbstractEnemy(Vec2 pos);
     virtual ~AbstractEnemy() = default;

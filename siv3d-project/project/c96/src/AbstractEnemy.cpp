@@ -13,7 +13,7 @@ bool AbstractEnemy::update() {
     bullet();
     bulletManager.update();
     cnt++;
-    return isInGameArea();
+    return isInGameArea() || bulletManager.getBulletNum() > 0;
 }
 
 void AbstractEnemy::move() {
@@ -23,8 +23,10 @@ void AbstractEnemy::move() {
 }
 
 void AbstractEnemy::bullet() {
-    for (auto i : step(36)) {
-        bulletManager.add(pos, 10, ToRadians(i*10));
+    if (cnt%10 == 0) {
+        for (auto i : step(12)) {
+            bulletManager.add(pos, 10, ToRadians(i*10+cnt));
+        }
     }
 }
     

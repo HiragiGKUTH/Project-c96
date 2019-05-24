@@ -23,3 +23,7 @@ void Bullet::draw() const {
     //todo: draw actual bullet
     collision.draw();
 }
+
+Circle* Bullet::getCollision() {
+    return &collision;
+}

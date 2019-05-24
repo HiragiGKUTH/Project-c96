@@ -22,6 +22,9 @@ public:
     bool update() override;
     void draw() const override;
     
+    Circle* getCollision();
+    void hit();
+    
 private:
     void move();
     void shot();

@@ -56,3 +56,11 @@ void Player::shot() {
         }
     }
 }
+
+Circle* Player::getCollision() {
+    return &collision;
+}
+
+void Player::hit() {
+    Print << U"Player: Hit";
+}

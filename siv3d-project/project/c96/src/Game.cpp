@@ -10,6 +10,7 @@ Game::Game(const InitData &init) : IScene(init) {
 void Game::update() {
     player->update();
     enemyManager->update();
+    collisionAll();
 }
 
 void Game::draw() const {
@@ -18,4 +19,14 @@ void Game::draw() const {
     
     player->draw();
     enemyManager->draw();
+}
+
+void Game::collisionAll() {
+    Circle* playerCollision = player->getCollision();
+    Array<Circle*> enemyCollisions = enemyManager->getEnemyCollisions();
+    for (auto& enemyCollision : enemyCollisions) {
+        if (playerCollision->intersects(*enemyCollision)) {
+            player->hit();
+        }
+    }
 }

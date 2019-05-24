@@ -19,11 +19,15 @@ protected:
     Circle collision;
     
     BulletManager bulletManager;
+    
+    const unsigned int beginDurationFrame = 120;
 
 public:
     AbstractEnemy(Vec2 pos);
     virtual ~AbstractEnemy() = default;
     bool update() override;
+    
+    Array<Circle*> getCollisions();
     
 protected:
     bool isInGameArea();

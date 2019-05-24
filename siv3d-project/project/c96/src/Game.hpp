@@ -15,6 +15,9 @@ private:
     Font dummy;
     std::shared_ptr<Player> player;
     std::shared_ptr<EnemyManager> enemyManager;
+    
+private:
+    void collisionAll();
 public:
     Game(const InitData &init);
     void update() override;

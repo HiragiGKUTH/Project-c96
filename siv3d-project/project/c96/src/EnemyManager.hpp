@@ -16,6 +16,8 @@ public:
     ~EnemyManager() = default;
     bool update() override;
     void draw() const override;
+    
+    Array<Circle*> getEnemyCollisions();
 };
 
 #endif /* EnemyManager_hpp */

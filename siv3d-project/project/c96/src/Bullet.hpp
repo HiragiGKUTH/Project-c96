@@ -19,6 +19,8 @@ public:
     bool update() override;
     void draw() const override;
     
+    Circle* getCollision();
+    
     void setAngle(double ang);
     void setSpeed(double speed);
     

@@ -23,6 +23,9 @@ void AbstractEnemy::move() {
 }
 
 void AbstractEnemy::bullet() {
+    for (auto i : step(36)) {
+        bulletManager.add(pos, 10, ToRadians(i*10));
+    }
 }
     
 
@@ -32,6 +35,15 @@ bool AbstractEnemy::isInGameArea() {
         return true;
     }
     return Window::ClientRect().intersects(collision);
+}
+
+Array<Circle*> AbstractEnemy::getCollisions() {
+    Array<Circle*> collisionList;
+    collisionList.push_back(&collision);
+    for (int i = 0; i < bulletManager.getBulletNum(); ++i) {
+        collisionList.push_back(bulletManager.at(i)->getCollision());
+    }
+    return collisionList;
 }
 
 void AbstractEnemy::setCollisionSize(double r) {

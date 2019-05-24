@@ -25,3 +25,11 @@ void EnemyManager::draw() const {
         enemy->draw();
     }
 }
+
+Array<Circle*> EnemyManager::getEnemyCollisions() {
+    Array<Circle*> allEnemyCollisions;
+    for (auto& enemy : enemyList) {
+        allEnemyCollisions.append(enemy->getCollisions());
+    }
+    return allEnemyCollisions;
+}

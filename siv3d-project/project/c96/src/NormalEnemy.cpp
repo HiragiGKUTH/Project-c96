@@ -11,4 +11,5 @@ NormalEnemy::NormalEnemy(Vec2 pos, double speed, double ang) : AbstractEnemy(pos
 void NormalEnemy::draw() const {
     // this is alternative way for drawing enemy
     collision.draw();
+    bulletManager.draw();
 }

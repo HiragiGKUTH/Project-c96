@@ -9,12 +9,22 @@ AbstractEnemy::AbstractEnemy(Vec2 pos) {
 }
 
 bool AbstractEnemy::update() {
-    vel.set(Vec2(speed, 0).rotated(ang));
-    pos.moveBy(vel);
-    collision.setPos(pos);
+    move();
+    bullet();
+    bulletManager.update();
     cnt++;
     return isInGameArea();
 }
+
+void AbstractEnemy::move() {
+    vel.set(Vec2(speed, 0).rotated(ang));
+    pos.moveBy(vel);
+    collision.setPos(pos);
+}
+
+void AbstractEnemy::bullet() {
+}
+    
 
 // return True if a Enemy in game area
 bool AbstractEnemy::isInGameArea() {

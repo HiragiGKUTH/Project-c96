@@ -3,6 +3,7 @@
 
 #include <Siv3D.hpp>
 #include "Task.hpp"
+#include "BulletManager.hpp"
 
 
 class AbstractEnemy : public Task {
@@ -17,8 +18,8 @@ protected:
     double collisionRadius;
     Circle collision;
     
-    const beginDurationFrame = 120;
-    
+    BulletManager bulletManager;
+
 public:
     AbstractEnemy(Vec2 pos);
     virtual ~AbstractEnemy() = default;
@@ -27,6 +28,9 @@ public:
 protected:
     bool isInGameArea();
     void setCollisionSize(double r);
+    
+    void move();
+    void bullet();
 };
 
 #endif /* AbstractEnemy_hpp */

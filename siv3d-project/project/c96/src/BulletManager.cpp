@@ -26,7 +26,8 @@ bool BulletManager::update() {
     unsigned long bulletNum = bulletList.size();
     for (int i = 0; i < bulletNum; ++i) {
         if (!bulletList.at(i)->update()) {
-            bulletList.remove_at(i);
+            // i-- to avoid skipping bullet update 
+            bulletList.remove_at(i--);
             bulletNum--;
         }
     }

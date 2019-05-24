@@ -12,7 +12,8 @@ bool EnemyManager::update() {
     unsigned long enemyNum = enemyList.size();
     for (int i = 0; i < enemyNum; ++i) {
         if (!enemyList.at(i)->update()) {
-            enemyList.remove_at(i);
+            // i-- to avoid skipping enemy update 
+            enemyList.remove_at(i--);
             enemyNum--;
         }
     }

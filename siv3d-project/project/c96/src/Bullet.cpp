@@ -5,7 +5,7 @@ Bullet::Bullet(Vec2 pos, double speed, double ang) {
     this->speed = speed;
     this->ang = ang;
     
-    this->collision = Circle(20);
+    this->collision = Circle(8);
     
     // 右を初期値に回す
     this->vel = Vec2::Right().rotate(ang)*speed;
@@ -21,7 +21,7 @@ bool Bullet::update() {
 
 void Bullet::draw() const {
     //todo: draw actual bullet
-    collision.draw();
+    collision.draw(Palette::Red);
 }
 
 Circle* Bullet::getCollision() {

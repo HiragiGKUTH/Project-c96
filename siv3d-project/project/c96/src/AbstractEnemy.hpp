@@ -27,7 +27,11 @@ public:
     virtual ~AbstractEnemy() = default;
     bool update() override;
     
-    Array<Circle*> getCollisions();
+    void hit();
+    
+    Circle* getCollision();
+    Array<Circle*> getBulletCollisions();
+    
     
 protected:
     bool isInGameArea();

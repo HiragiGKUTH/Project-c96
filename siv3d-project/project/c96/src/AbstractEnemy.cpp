@@ -16,6 +16,10 @@ bool AbstractEnemy::update() {
     return isInGameArea() || bulletManager.getBulletNum() > 0;
 }
 
+void AbstractEnemy::hit() {
+    Print << U"Player to enemy hit";
+}
+
 void AbstractEnemy::move() {
     vel.set(Vec2(speed, 0).rotated(ang));
     pos.moveBy(vel);
@@ -29,7 +33,6 @@ void AbstractEnemy::bullet() {
         }
     }
 }
-    
 
 // return True if a Enemy in game area
 bool AbstractEnemy::isInGameArea() {
@@ -39,13 +42,16 @@ bool AbstractEnemy::isInGameArea() {
     return Window::ClientRect().intersects(collision);
 }
 
-Array<Circle*> AbstractEnemy::getCollisions() {
-    Array<Circle*> collisionList;
-    collisionList.push_back(&collision);
+Circle* AbstractEnemy::getCollision() {
+    return &collision;
+}
+
+Array<Circle*> AbstractEnemy::getBulletCollisions() {
+    Array<Circle*> bulletCollisionList;
     for (int i = 0; i < bulletManager.getBulletNum(); ++i) {
-        collisionList.push_back(bulletManager.at(i)->getCollision());
+        bulletCollisionList.push_back(bulletManager.at(i)->getCollision());
     }
-    return collisionList;
+    return bulletCollisionList;
 }
 
 void AbstractEnemy::setCollisionSize(double r) {

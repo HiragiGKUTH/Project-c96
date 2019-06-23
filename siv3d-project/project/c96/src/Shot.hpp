@@ -19,6 +19,8 @@ public:
     bool update() override;
     void draw() const override;
     
+    Circle* getCollision();
+    
 private:
     void move();
     bool isInGameArea();

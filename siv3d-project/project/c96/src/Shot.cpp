@@ -17,6 +17,10 @@ void Shot::draw() const {
     collision.draw();
 }
 
+Circle* Shot::getCollision() {
+    return &collision;
+}
+
 // return True if a Shot is in game area
 bool Shot::isInGameArea() {
     return Window::ClientRect().intersects(collision);

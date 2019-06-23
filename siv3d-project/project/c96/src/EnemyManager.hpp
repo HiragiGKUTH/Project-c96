@@ -17,7 +17,10 @@ public:
     bool update() override;
     void draw() const override;
     
-    Array<Circle*> getEnemyCollisions();
+    
+    
+    Array<Circle*> getCollisions();
+    Array<Circle*> getBulletCollisions();
 };
 
 #endif /* EnemyManager_hpp */

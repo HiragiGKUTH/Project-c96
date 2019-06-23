@@ -27,10 +27,18 @@ void EnemyManager::draw() const {
     }
 }
 
-Array<Circle*> EnemyManager::getEnemyCollisions() {
-    Array<Circle*> allEnemyCollisions;
+Array<Circle*> EnemyManager::getCollisions() {
+    Array<Circle*> enemyCollisions;
     for (auto& enemy : enemyList) {
-        allEnemyCollisions.append(enemy->getCollisions());
+        enemyCollisions.push_back(enemy->getCollision());
     }
-    return allEnemyCollisions;
+    return enemyCollisions;
+}
+
+Array<Circle*> EnemyManager::getBulletCollisions() {
+    Array<Circle*> enemyBulletCollisions;
+    for (auto& enemy : enemyList) {
+        enemyBulletCollisions.append(enemy->getBulletCollisions());
+    }
+    return enemyBulletCollisions;
 }

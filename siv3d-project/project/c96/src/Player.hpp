@@ -13,6 +13,7 @@ private:
     Vec2 pos;
     Vec2 vel;
     Circle collision;
+    Color color;
     const double speed = 16.0;
     Array<std::shared_ptr<Shot>> shotList;
     
@@ -23,6 +24,7 @@ public:
     void draw() const override;
     
     Circle* getCollision();
+    Array<Circle*> getShotCollisions();
     void hit();
     
 private:

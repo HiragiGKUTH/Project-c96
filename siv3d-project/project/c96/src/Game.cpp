@@ -23,10 +23,31 @@ void Game::draw() const {
 
 void Game::collisionAll() {
     Circle* playerCollision = player->getCollision();
-    Array<Circle*> enemyCollisions = enemyManager->getEnemyCollisions();
-    for (auto& enemyCollision : enemyCollisions) {
-        if (playerCollision->intersects(*enemyCollision)) {
+    Array<Circle*> playerShotCollisions = player->getShotCollisions();
+    
+    Array<Circle*> enemyCollisions = enemyManager->getCollisions();
+    Array<Circle*> enemyBulletCollisions = enemyManager->getBulletCollisions();
+    
+    collisionEnemyToPlayer(playerCollision, enemyBulletCollisions);
+    collisionPlayerToEnemy(playerShotCollisions, enemyCollisions);
+}
+
+void Game::collisionEnemyToPlayer(Circle* pCol, Array<Circle*> eBulletCols) {
+    for (auto& eBulletCol : eBulletCols) {
+        if (pCol->intersects(*eBulletCol)) {
             player->hit();
+            break;
+        }
+    }
+}
+
+void Game::collisionPlayerToEnemy(Array<Circle*> pShotCols, Array<Circle*> eCols) {
+    for (auto& pShotCol : pShotCols) {
+        for (auto& eCol : eCols) {
+            if (eCol->intersects(*pShotCol)) {
+                Print << U"Player to Enemy Hit";
+                break;
+            }
         }
     }
 }

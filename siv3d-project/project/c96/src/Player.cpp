@@ -4,16 +4,18 @@
 Player::Player() {
     this->pos = Vec2(Define::WindowSize.x/2, Define::WindowSize.y/2);
     this->collision.set(this->pos, 16.0);
+    this->color = Palette::White;
 }
 
 bool Player::update() {
+    color = Palette::White;
     move();
     shot();
     return true;
 }
 
 void Player::draw() const {
-    collision.draw();
+    collision.draw(color);
     Print << shotList.size() << U" Shots";
     for (auto& shot : shotList) {
         shot->draw();
@@ -61,6 +63,14 @@ Circle* Player::getCollision() {
     return &collision;
 }
 
+Array<Circle*> Player::getShotCollisions() {
+    Array<Circle*> shotCollisionList;
+    for (auto& shot : shotList) {
+        shotCollisionList.push_back(shot->getCollision());
+    }
+    return shotCollisionList;
+}
+
 void Player::hit() {
-    Print << U"Player: Hit";
+    color = Palette::Red;
 }

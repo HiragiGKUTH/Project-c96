@@ -18,6 +18,9 @@ private:
     
 private:
     void collisionAll();
+    
+    void collisionEnemyToPlayer(Circle* pCol, Array<Circle*> eCols);
+    void collisionPlayerToEnemy(Array<Circle*> pShotCols, Array<Circle*> eCols);
 public:
     Game(const InitData &init);
     void update() override;

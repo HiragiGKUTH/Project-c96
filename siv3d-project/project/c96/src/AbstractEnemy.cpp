@@ -30,7 +30,8 @@ void AbstractEnemy::move() {
 void AbstractEnemy::bullet() {
     if (cnt%10 == 0) {
         for (auto i : step(12)) {
-            bulletManager.add(pos, 10, ToRadians(i*10+cnt));
+            // TODO: guess how to decide angle use getAngle()
+            bulletManager.add(pos, 10, Vec2::Zero().getAngle(GameDefine::PlayerPoses[i]-pos));
         }
     }
 }

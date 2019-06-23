@@ -1,5 +1,5 @@
 #include "Player.hpp"
-
+#include "GameDefine.hpp"
 
 Player::Player() {
     this->pos = Vec2(Define::WindowSize.x/2, Define::WindowSize.y/2);
@@ -21,23 +21,35 @@ void Player::draw() const {
         shot->draw();
     }
     Print << pos;
+    for (auto& movePos : GameDefine::PlayerPoses) {
+        Circle(movePos, 16.0).drawFrame(4.0, Palette::Orange);
+    }
 }
 
 void Player::move() {
-    Vec2 tmp_vel = Vec2::Zero();
-    int push_num = 0;
+    // set target pos
+    if (KeyS.down()) {
+        targetPos = GameDefine::PlayerPoses[0];
+    }
+    if (KeyD.down()) {
+        targetPos = GameDefine::PlayerPoses[1];
+    }
+    if (KeyF.down()) {
+        targetPos = GameDefine::PlayerPoses[2];
+    }
+    if (KeyJ.down()) {
+        targetPos = GameDefine::PlayerPoses[3];
+    }
+    if (KeyK.down()) {
+        targetPos = GameDefine::PlayerPoses[4];
+    }
+    if (KeyL.down()) {
+        targetPos = GameDefine::PlayerPoses[5];
+    }
     
-    // key ifs...
-    if (KeyUp.pressed()) { tmp_vel+=Vec2::Up(); push_num++;}
-    if (KeyRight.pressed()) { tmp_vel+=Vec2::Right(); push_num++;}
-    if (KeyDown.pressed()) { tmp_vel+=Vec2::Down(); push_num++;}
-    if (KeyLeft.pressed()) { tmp_vel+=Vec2::Left(); push_num++;}
-    // If shift pressed player move slow
-    if (KeyShift.pressed()) { tmp_vel*=0.6; }
-    // If player will move to diagonal, set speed 1/1.414...
-    if (push_num > 1) tmp_vel/=Math::Sqrt(2.0);
-    //apply position
-    pos.moveBy(tmp_vel*speed);
+    vel = (targetPos - pos)/5;
+    pos.moveBy(vel);
+    
     collision.setPos(pos);
 }
 

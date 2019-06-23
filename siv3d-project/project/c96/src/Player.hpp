@@ -12,6 +12,7 @@ class Player : public Task {
 private:
     Vec2 pos;
     Vec2 vel;
+    Vec2 targetPos;
     Circle collision;
     Color color;
     const double speed = 16.0;

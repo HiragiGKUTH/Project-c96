@@ -6,6 +6,7 @@
 #include <memory>
 #include "GameData.hpp"
 
+#include "Board.hpp"
 #include "Player.hpp"
 #include "EnemyManager.hpp"
 
@@ -13,6 +14,7 @@
 class Game : public MyApp::Scene {
 private:
     Font dummy;
+    std::shared_ptr<Board> board;
     std::shared_ptr<Player> player;
     std::shared_ptr<EnemyManager> enemyManager;
     

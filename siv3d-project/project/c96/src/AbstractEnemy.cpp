@@ -1,4 +1,5 @@
 #include "AbstractEnemy.hpp"
+#include "GameDefine.hpp"
 
 
 AbstractEnemy::AbstractEnemy(Vec2 pos) {
@@ -39,7 +40,7 @@ bool AbstractEnemy::isInGameArea() {
     if (cnt < beginDurationFrame) {
         return true;
     }
-    return Window::ClientRect().intersects(collision);
+    return GameDefine::GameArea.intersects(collision);
 }
 
 Circle* AbstractEnemy::getCollision() {

@@ -1,4 +1,5 @@
 #include "Shot.hpp"
+#include "GameDefine.hpp"
 
 
 Shot::Shot(Vec2 pos, double speed, double ang) {
@@ -23,6 +24,6 @@ Circle* Shot::getCollision() {
 
 // return True if a Shot is in game area
 bool Shot::isInGameArea() {
-    return Window::ClientRect().intersects(collision);
+    return GameDefine::GameArea.intersects(collision);
 }
 

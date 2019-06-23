@@ -3,6 +3,7 @@
 
 Game::Game(const InitData &init) : IScene(init) {
     this->dummy = Font(64);
+    this->board = std::make_shared<Board>();
     this->player = std::make_shared<Player>();
     this->enemyManager = std::make_shared<EnemyManager>();
 }
@@ -10,6 +11,7 @@ Game::Game(const InitData &init) : IScene(init) {
 void Game::update() {
     player->update();
     enemyManager->update();
+    board->update();
     collisionAll();
 }
 
@@ -17,8 +19,11 @@ void Game::draw() const {
     dummy(U"Game Scene").draw();
     Print << getData().difficulty;
     
+    
+
     player->draw();
     enemyManager->draw();
+    board->draw();
 }
 
 void Game::collisionAll() {

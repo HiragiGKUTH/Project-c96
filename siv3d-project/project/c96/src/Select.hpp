@@ -10,8 +10,9 @@
 class Select : public MyApp::Scene {
 private:
     Array<String> difficulty_names;
-    Array<String> difficulty_descriptions;
     Array<SelectionBox> selection_boxes;
+    Array<String> track_names;
+    double menu_theta;
 public:
     Select(const InitData &init);
     void update() override;

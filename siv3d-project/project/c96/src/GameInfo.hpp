@@ -30,21 +30,6 @@ namespace GameInfo {
         { U"Game Art" ,{ U"Hiragi-GKUTH" }},
         { U"Game Musics" ,{ U"Hiragi-GKUTH" }},
     };
-    
-    //Difficulties
-    const Array<String> Difficulty_names {
-        U"Lunatic",
-        U"Hard",
-        U"Normal",
-        U"Easy",
-    };
-    
-    const Array<String> Difficulty_descriptions {
-        U"遊ばないほうがいいと思うぜ！",
-        U"相当弾幕STGに自身があると見た...",
-        U"ふつうのひと",
-        U"げーむしょしんしゃ",
-    };
 }
 
 

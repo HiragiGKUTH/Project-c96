@@ -28,11 +28,8 @@ void AbstractEnemy::move() {
 }
 
 void AbstractEnemy::bullet() {
-    if (cnt%10 == 0) {
-        for (auto i : step(12)) {
-            // TODO: guess how to decide angle use getAngle()
-            bulletManager.add(pos, 10, Vec2::Zero().getAngle(GameDefine::PlayerPoses[i]-pos));
-        }
+    if (cnt%60== 0) {
+        bulletManager.add(pos, Vec2(Window::Width()/2, Window::Height()/2), 1.0, 1);
     }
 }
 
@@ -51,7 +48,6 @@ Circle* AbstractEnemy::getCollision() {
 Array<Circle*> AbstractEnemy::getBulletCollisions() {
     Array<Circle*> bulletCollisionList;
     for (int i = 0; i < bulletManager.getBulletNum(); ++i) {
-        bulletCollisionList.push_back(bulletManager.at(i)->getCollision());
     }
     return bulletCollisionList;
 }

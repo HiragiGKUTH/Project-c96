@@ -1,19 +1,28 @@
 #include "Bullet.hpp"
 
-Bullet::Bullet(Vec2 pos, double speed, double ang) {
+Bullet::Bullet(Vec2 pos, Vec2 targetPos, double arriveTime, int moveKind = 1) {
     this->pos = pos;
-    this->speed = speed;
-    this->ang = ang;
+    this->targetPos = targetPos;
+    this->arriveTime = arriveTime;
+    this->moveKind = moveKind;
     
-    this->collision = Circle(8);
-    
-    // 右を初期値に回す
-    this->vel = Vec2::Right().rotate(ang)*speed;
+    this->currentTime = 0.0;
+    this->startPos = this->pos;
+    this->collision.setR(32.0);
 }
 
 bool Bullet::update() {
-    vel = Vec2::Right().rotate(ang)*speed;
-    pos.moveBy(vel);
+    currentTime+=System::DeltaTime();
+    
+    switch (moveKind) {
+        case 1:
+            pos = startPos + (targetPos - startPos) * (currentTime/arriveTime);
+            break;
+        default:
+            Print << U"Bullet::Update():error - Unknown move kind";
+            pos = Vec2::Zero();
+            break;
+    }
     collision.setPos(pos);
     
     return Window::ClientRect().intersects(collision);
@@ -22,8 +31,7 @@ bool Bullet::update() {
 void Bullet::draw() const {
     //todo: draw actual bullet
     collision.draw(Palette::Red);
-}
-
-Circle* Bullet::getCollision() {
-    return &collision;
+    if (arriveTime > currentTime) {
+        Circle(targetPos, 32.0).drawFrame(0.0, 3.0, Palette::White, Palette::Orange);
+    }
 }

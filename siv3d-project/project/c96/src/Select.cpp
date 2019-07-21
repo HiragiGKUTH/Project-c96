@@ -16,9 +16,6 @@ Array<String> getTrackList() {
 }
 
 Select::Select(const InitData &init) : IScene(init) {
-    // Set difficulty texts
-    this->difficulty_names = GameInfo::Difficulty_names;
-    
     // Get Track names
     this->track_names = getTrackList();
     

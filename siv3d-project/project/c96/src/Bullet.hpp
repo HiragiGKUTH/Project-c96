@@ -8,23 +8,21 @@ class Bullet : public Task {
 private:
     Vec2 pos;
     Vec2 vel;
+    Vec2 startPos;
+    Vec2 targetPos;
     double speed;
     double ang;
+    double arriveTime;
+    double currentTime;
     unsigned int cnt;
+    int moveKind;
     Circle collision;
     
 public:
-    Bullet(Vec2 pos, double speed, double ang);
+    Bullet(Vec2 pos, Vec2 targetPos, double arriveTime, int moveKind);
     
     bool update() override;
     void draw() const override;
-    
-    Circle* getCollision();
-    
-    void setAngle(double ang);
-    void setSpeed(double speed);
-    
-    void activateGravity(double strength, double direction);
 };
 
 #endif /* Bullet_hpp */

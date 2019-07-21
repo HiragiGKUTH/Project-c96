@@ -4,13 +4,13 @@ BulletManager::BulletManager() {
     
 }
 
-bool BulletManager::add(Vec2 pos, double speed, double ang) {
+bool BulletManager::add(Vec2 startPos, Vec2 targetPos, double arriveTime, int moveKind = 1) {
     if (bulletList.size() >= MAX_BULLETS) {
-        Print << U"BulletManager: can't add more bullet. >10000";
+        Print << U"BulletManager: can't add more bullet.";
         return false;
     }
     // make bullet and push
-    bulletList.push_back(std::make_shared<Bullet>(pos, speed, ang));
+    bulletList.push_back(std::make_shared<Bullet>(startPos, targetPos, arriveTime, moveKind));
     return true;
 }
 

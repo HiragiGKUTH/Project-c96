@@ -10,12 +10,12 @@
 class BulletManager : public Task {
 private:
     Array<std::shared_ptr<Bullet>> bulletList;
-    const unsigned int MAX_BULLETS = 10000;
+    const unsigned int MAX_BULLETS = 2048;
     
 public:
     BulletManager();
     
-    bool add(Vec2 pos, double speed, double ang);
+    bool add(Vec2 startPos, Vec2 targetPos, double arriveTime, int moveKind);
     
     unsigned long getBulletNum();
     std::shared_ptr<Bullet> at(int index);

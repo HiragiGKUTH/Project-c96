@@ -4,7 +4,7 @@
 
 
 EnemyManager::EnemyManager() {
-    this->enemyList.push_back(std::make_shared<NormalEnemy>(Vec2(480,240), 1.0, ToRadians(90)));
+    this->enemyList.push_back(std::make_shared<NormalEnemy>(Vec2(480,240), 1.0, ToRadians(0)));
 }
 
 bool EnemyManager::update() {

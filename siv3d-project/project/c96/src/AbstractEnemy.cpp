@@ -29,7 +29,7 @@ void AbstractEnemy::move() {
 
 void AbstractEnemy::bullet() {
     if (cnt%60== 0) {
-        bulletManager.add(pos, Vec2(Window::Width()/2, Window::Height()/2), 1.0, 1);
+        bulletManager.add(pos, GameDefine::PlayerPoses[], 0.7, 1);
     }
 }
 

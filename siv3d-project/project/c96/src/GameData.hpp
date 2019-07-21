@@ -4,8 +4,15 @@
 #include <Siv3D.hpp>
 #include <HamFramework.hpp>
 
+struct TrackInfo {
+    String difficulty;
+    String trackName;
+    String musicScorePath;
+    double bpm;
+};
+
 struct GameData {
-    String difficulty = U"";
+    TrackInfo trackInfo;
 };
 
 using MyApp = SceneManager<String, GameData>;

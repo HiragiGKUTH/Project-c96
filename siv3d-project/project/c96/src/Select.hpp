@@ -9,11 +9,19 @@
 
 class Select : public MyApp::Scene {
 private:
-    Array<String> difficulty_names;
+    struct TrackInfo {
+        String name;
+        int difficulty;
+        String musicPath;
+        String scorePath;
+        double bpm;
+    };
+    
+    Array<TrackInfo> track_info;
     Array<SelectionBox> selection_boxes;
-    Array<String> track_names;
     double menu_theta;
 public:
+    Array<TrackInfo> loadTrackInfo();
     Select(const InitData &init);
     void update() override;
     void draw() const override;

@@ -2,12 +2,15 @@
 #include "GameDefine.hpp"
 
 Player::Player() {
-    this->pos = Vec2(Define::WindowSize.x/2, Define::WindowSize.y/2);
+    this->pos = GameDefine::PlayerPoses[GameDefine::ePlayerPos::F];
+    this->targetPos = GameDefine::PlayerPoses[GameDefine::ePlayerPos::F];
     this->collision.set(this->pos, 16.0);
     this->color = Palette::White;
+    this->cnt = 0;
 }
 
 bool Player::update() {
+    cnt++;
     color = Palette::White;
     move();
     shot();
@@ -16,11 +19,9 @@ bool Player::update() {
 
 void Player::draw() const {
     collision.draw(color);
-    Print << shotList.size() << U" Shots";
     for (auto& shot : shotList) {
         shot->draw();
     }
-    Print << pos;
     for (auto& movePos : GameDefine::PlayerPoses) {
         Circle(movePos, 16.0).drawFrame(4.0, Palette::Orange);
     }
@@ -54,7 +55,7 @@ void Player::move() {
 }
 
 void Player::shot() {
-    if (System::FrameCount() % 10 == 0) {
+    if (KeySpace.pressed() && cnt % 10 == 0) {
         shotList << std::make_shared<Shot>(pos, 10.0, ToRadians(270));
     }
     

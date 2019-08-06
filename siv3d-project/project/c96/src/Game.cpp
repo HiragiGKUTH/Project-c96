@@ -6,13 +6,24 @@ Game::Game(const InitData &init) : IScene(init) {
     this->board = std::make_shared<Board>();
     this->player = std::make_shared<Player>();
     this->enemyManager = std::make_shared<EnemyManager>();
+    this->gameTimer.start();
 }
 
 void Game::update() {
     player->update();
-    enemyManager->update();
     board->update();
     collisionAll();
+    
+    if (gameTimer.sF() < beginTime)
+        return;
+    
+    if (!trackTimer.isRunning())
+        trackTimer.start();
+    
+    
+    enemyManager->update();
+    Print << U"begin " << trackTimer.sF() << U" s.";
+    
 }
 
 void Game::draw() const {

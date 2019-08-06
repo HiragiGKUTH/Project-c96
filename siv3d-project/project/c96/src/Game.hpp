@@ -18,6 +18,11 @@ private:
     std::shared_ptr<Player> player;
     std::shared_ptr<EnemyManager> enemyManager;
     
+    Stopwatch gameTimer;
+    Stopwatch trackTimer;
+    
+    const double beginTime = 3.0;
+    
 private:
     void collisionAll();
     

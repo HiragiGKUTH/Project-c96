@@ -17,6 +17,7 @@ private:
     Color color;
     const double speed = 16.0;
     Array<std::shared_ptr<Shot>> shotList;
+    int cnt;
     
 public:
     Player();

@@ -9,14 +9,6 @@
 
 class Select : public MyApp::Scene {
 private:
-    struct TrackInfo {
-        String name;
-        int difficulty;
-        String musicPath;
-        String scorePath;
-        double bpm;
-    };
-    
     Array<TrackInfo> track_info;
     Array<SelectionBox> selection_boxes;
     double menu_theta;

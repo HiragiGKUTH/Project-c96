@@ -6,13 +6,14 @@
 class SelectionBox {
 private:
     Font text_font;
+    int id;
     String text;
     Color box_color;
     double line_thickness;
     RectF box;
     Vec2 pos;
 public:
-    SelectionBox(String& text, Color box_color = Palette::White, double line_thickness = 2.0);
+    SelectionBox(int id, String& text, Color box_color = Palette::White, double line_thickness = 2.0);
     void draw() const;
     
     // setter
@@ -22,6 +23,7 @@ public:
     // getter
     RectF getRegion() const ;
     String getText() const ;
+    int getId() const ;
 };
 
 #endif /* SelectionBox_hpp */

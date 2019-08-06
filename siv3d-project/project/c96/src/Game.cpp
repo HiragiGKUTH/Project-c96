@@ -6,6 +6,7 @@ Game::Game(const InitData &init) : IScene(init) {
     this->board = std::make_shared<Board>();
     this->player = std::make_shared<Player>();
     this->enemyManager = std::make_shared<EnemyManager>();
+    this->trackAudio = Audio(getData().trackInfo.musicPath);
     this->gameTimer.start();
 }
 
@@ -17,12 +18,20 @@ void Game::update() {
     if (gameTimer.sF() < beginTime)
         return;
     
-    if (!trackTimer.isRunning())
+    if (!trackTimer.isRunning()) {
         trackTimer.start();
+        trackAudio.play();
+    }
     
     
     enemyManager->update();
+    
+    
+    // dbg messages
     Print << U"begin " << trackTimer.sF() << U" s.";
+    Print << U"bpm " << getData().trackInfo.bpm;
+    Print << U"wav file " << getData().trackInfo.musicPath;
+    Print << U"csv file " << getData().trackInfo.scorePath;
     
 }
 

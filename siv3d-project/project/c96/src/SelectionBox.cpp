@@ -1,6 +1,7 @@
 #include "SelectionBox.hpp"
 
-SelectionBox::SelectionBox(String& text, Color box_color, double line_thickness) {
+SelectionBox::SelectionBox(int id, String& text, Color box_color, double line_thickness) {
+    this->id = id;
     this->text = text;
     this->box_color = box_color;
     this->line_thickness = line_thickness;
@@ -30,6 +31,11 @@ void SelectionBox::setBoxColor(Color color) {
 RectF SelectionBox::getRegion() const {
     return box;
 }
+
+int SelectionBox::getId() const {
+    return id;
+}
+
 
 String SelectionBox::getText() const {
     return text;

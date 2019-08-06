@@ -5,9 +5,10 @@
 #include <HamFramework.hpp>
 
 struct TrackInfo {
-    String difficulty;
-    String trackName;
-    String musicScorePath;
+    int difficulty;
+    String name;
+    String musicPath;
+    String scorePath;
     double bpm;
 };
 

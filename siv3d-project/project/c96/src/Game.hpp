@@ -21,6 +21,8 @@ private:
     Stopwatch gameTimer;
     Stopwatch trackTimer;
     
+    Audio trackAudio;
+    
     const double beginTime = 3.0;
     
 private:

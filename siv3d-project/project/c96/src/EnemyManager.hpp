@@ -10,14 +10,15 @@
 class EnemyManager : public Task {
 private:
     Array<std::shared_ptr<AbstractEnemy>> enemyList;
-    
+    Stopwatch trackTimer;
+    double beatTime;
 public:
-    EnemyManager();
+    EnemyManager(double bpm);
     ~EnemyManager() = default;
     bool update() override;
     void draw() const override;
     
-    
+    void beginTimer();
     
     Array<Circle*> getCollisions();
     Array<Circle*> getBulletCollisions();

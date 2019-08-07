@@ -10,6 +10,8 @@ struct TrackInfo {
     String musicPath;
     String scorePath;
     double bpm;
+    int denom;
+    int frac;
 };
 
 struct GameData {

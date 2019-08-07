@@ -20,6 +20,8 @@ Array<TrackInfo> Select::loadTrackInfo() {
         track.musicPath  = obj[U"music_path"].getString();
         track.scorePath = obj[U"score_path"].getString();
         track.bpm = obj[U"bpm"].get<double>();
+        track.denom = obj[U"beat_denom"].get<int>();
+        track.frac = obj[U"beat_frac"].get<int>();
         track_info << track;
     }
     return track_info;

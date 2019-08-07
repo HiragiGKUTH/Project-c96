@@ -3,11 +3,20 @@
 #include "GameDefine.hpp"
 
 
-EnemyManager::EnemyManager() {
-    this->enemyList.push_back(std::make_shared<NormalEnemy>(Vec2(480,240), 0.5, ToRadians(0)));
+EnemyManager::EnemyManager(double bpm) {
+    this->trackTimer.reset();
+    this->beatTime = 60.0 / bpm;
+}
+
+void EnemyManager::beginTimer() {
+    trackTimer.start();
 }
 
 bool EnemyManager::update() {
+    
+    if (trackTimer.sF() > beatTime) {
+        trackTimer.restart();
+    }
     
     // Enemy deletation
     unsigned long enemyNum = enemyList.size();

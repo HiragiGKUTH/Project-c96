@@ -1,22 +1,34 @@
+#include <cmath>
 #include "EnemyManager.hpp"
 #include "NormalEnemy.hpp"
 #include "GameDefine.hpp"
 
 
-EnemyManager::EnemyManager(double bpm) {
+EnemyManager::EnemyManager(double bpm, int frac, int denom) {
     this->trackTimer.reset();
+    
     this->beatTime = 60.0 / bpm;
+    this->beatCount = 0;
+    this->frac = frac;
+    this->denom = denom;
 }
 
 void EnemyManager::beginTimer() {
     trackTimer.start();
+    beatCount++;
 }
 
 bool EnemyManager::update() {
-    
-    if (trackTimer.sF() > beatTime) {
-        trackTimer.restart();
+    // beat counting
+    if (onBeatingFrame()) {
+        beatCount++;
     }
+    
+    
+    // add Enemy on timing
+    
+    
+    
     
     // Enemy deletation
     unsigned long enemyNum = enemyList.size();
@@ -31,7 +43,7 @@ bool EnemyManager::update() {
 }
 
 void EnemyManager::draw() const {
-    Print << enemyList.size() << U" Enemies";
+    Print << U"beat " << beatCount;
     for (auto& enemy : enemyList) {
         enemy->draw();
     }
@@ -51,4 +63,11 @@ Array<Circle*> EnemyManager::getBulletCollisions() {
         enemyBulletCollisions.append(enemy->getBulletCollisions());
     }
     return enemyBulletCollisions;
+}
+
+bool EnemyManager::onBeatingFrame() {
+    privTime = nowTime;
+    nowTime = std::fmod(trackTimer.sF(), beatTime);
+    
+    return privTime > nowTime;
 }

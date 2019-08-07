@@ -5,7 +5,7 @@ Game::Game(const InitData &init) : IScene(init) {
     this->dummy = Font(64);
     this->board = std::make_shared<Board>();
     this->player = std::make_shared<Player>();
-    this->enemyManager = std::make_shared<EnemyManager>(getData().trackInfo.bpm);
+    this->enemyManager = std::make_shared<EnemyManager>(getData().trackInfo.bpm, getData().trackInfo.frac, getData().trackInfo.denom);
     this->trackAudio = Audio(getData().trackInfo.musicPath);
     this->gameTimer.start();
 }

@@ -38,6 +38,8 @@ namespace GameDefine {
         L,
         NUMOF,
     };
+    
+    const Vec2 scoreBasePos(680, 250);
 }
 
 

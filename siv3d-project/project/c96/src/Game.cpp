@@ -3,19 +3,19 @@
 
 Game::Game(const InitData &init) : IScene(init) {
     loadNotes();
-    
+    this->trackAudio = Audio(getData().trackInfo.musicPath);
     this->dummy = Font(64);
-    this->board = std::make_shared<Board>();
+    this->board = std::make_shared<Board>(this->notes, this->trackAudio.lengthSec());
     this->player = std::make_shared<Player>();
     this->enemyManager = std::make_shared<EnemyManager>(getData().trackInfo.bpm, getData().trackInfo.frac, getData().trackInfo.denom, this->notes);
-    this->trackAudio = Audio(getData().trackInfo.musicPath);
+
     this->gameTimer.start();
 }
 
 void Game::update() {
-    player->update();
+    //player->update();
     board->update();
-    collisionAll();
+    //collisionAll();
     
     if (gameTimer.sF() < beginTime)
         return;
@@ -23,6 +23,7 @@ void Game::update() {
     if (!trackTimer.isRunning()) {
         trackTimer.start();
         enemyManager->beginTimer();
+        board->beginTimer();
         trackAudio.play();
     }
     
@@ -46,7 +47,7 @@ void Game::update() {
 void Game::draw() const {
     dummy(U"Game Scene").draw();
 
-    player->draw();
+    //player->draw();
     enemyManager->draw();
     board->draw();
 }

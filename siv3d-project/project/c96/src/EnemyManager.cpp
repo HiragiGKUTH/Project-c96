@@ -5,13 +5,14 @@
 #include "GameInfo.hpp"
 
 
-EnemyManager::EnemyManager(double bpm, int frac, int denom) {
+EnemyManager::EnemyManager(double bpm, int frac, int denom, Array<std::pair<double, GameDefine::ePlayerPos>> notes) {
     this->trackTimer.reset();
     
     this->beatTime = 60.0 / bpm;
     this->beatCount = 0;
     this->frac = frac;
     this->denom = denom;
+    this->notes = notes;
 }
 
 void EnemyManager::beginTimer() {
@@ -31,10 +32,10 @@ bool EnemyManager::update() {
     
     // add Enemy on timing
     if (isBeatingFrame) {
-        Array<std::pair<double, GameDefine::ePlayerPos>> notes;
-        notes.push_back({beatTime, static_cast<GameDefine::ePlayerPos>(Random(0,5))});
-        notes.push_back({beatTime, static_cast<GameDefine::ePlayerPos>(Random(0,5))});
-        enemyList.push_back(std::make_shared<NormalEnemy>(GameDefine::GameArea.center(), Random(Math::TwoPi), notes, beatTime));
+        Array<std::pair<double, GameDefine::ePlayerPos>> s;
+        s.push_back({beatTime, static_cast<GameDefine::ePlayerPos>(Random(0,5))});
+        s.push_back({beatTime, static_cast<GameDefine::ePlayerPos>(Random(0,5))});
+        enemyList.push_back(std::make_shared<NormalEnemy>(GameDefine::GameArea.center(), Random(Math::TwoPi), s, beatTime*2));
     }
     
     

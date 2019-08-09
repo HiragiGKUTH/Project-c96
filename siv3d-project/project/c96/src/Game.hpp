@@ -9,6 +9,7 @@
 #include "Board.hpp"
 #include "Player.hpp"
 #include "EnemyManager.hpp"
+#include "GameDefine.hpp"
 
 
 class Game : public MyApp::Scene {
@@ -22,10 +23,14 @@ private:
     Stopwatch trackTimer;
     
     Audio trackAudio;
+    Array<std::pair<double, GameDefine::ePlayerPos>> notes;
     
     const double beginTime = 3.0;
     
 private:
+    bool loadNotes();
+    
+
     void collisionAll();
     
     void collisionEnemyToPlayer(Circle* pCol, Array<Circle*> eCols);

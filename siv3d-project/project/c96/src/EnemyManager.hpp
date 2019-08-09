@@ -5,6 +5,7 @@
 #include <memory>
 #include "AbstractEnemy.hpp"
 #include "Task.hpp"
+#include "GameDefine.hpp"
 
 
 class EnemyManager : public Task {
@@ -15,12 +16,13 @@ private:
     double beatTime;
     int frac;
     int denom;
+    Array<std::pair<double, GameDefine::ePlayerPos>> notes;
     
     double nowTime;
     double privTime;
     bool isBeatingFrame;
 public:
-    EnemyManager(double bpm, int frac, int denom);
+    EnemyManager(double bpm, int frac, int denom, Array<std::pair<double, GameDefine::ePlayerPos>> notes);
     ~EnemyManager() = default;
     bool update() override;
     void draw() const override;

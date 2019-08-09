@@ -2,9 +2,8 @@
 #include "NormalEnemy.hpp"
 
 
-NormalEnemy::NormalEnemy(Vec2 pos, double speed, double ang) : AbstractEnemy(pos) {
-    this->speed = speed;
-    this->ang = ang;
+NormalEnemy::NormalEnemy(Vec2 pos, double exitAngle, Array<std::pair<double, GameDefine::ePlayerPos>> notesInfo, double arrivalDuration)
+        : AbstractEnemy(pos, exitAngle, notesInfo, arrivalDuration) {
     this->setCollisionSize(16.0);
 }
 

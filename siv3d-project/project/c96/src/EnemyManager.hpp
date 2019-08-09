@@ -18,6 +18,7 @@ private:
     
     double nowTime;
     double privTime;
+    bool isBeatingFrame;
 public:
     EnemyManager(double bpm, int frac, int denom);
     ~EnemyManager() = default;
@@ -30,7 +31,7 @@ public:
     Array<Circle*> getBulletCollisions();
     
 private:
-    bool onBeatingFrame();
+    void beatUpdate();
 };
 
 #endif /* EnemyManager_hpp */

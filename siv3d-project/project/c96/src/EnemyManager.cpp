@@ -2,6 +2,7 @@
 #include "EnemyManager.hpp"
 #include "NormalEnemy.hpp"
 #include "GameDefine.hpp"
+#include "GameInfo.hpp"
 
 
 EnemyManager::EnemyManager(double bpm, int frac, int denom) {
@@ -19,14 +20,22 @@ void EnemyManager::beginTimer() {
 }
 
 bool EnemyManager::update() {
+    // beat update
+    beatUpdate();
+    
     // beat counting
-    if (onBeatingFrame()) {
+    if (isBeatingFrame) {
         beatCount++;
     }
     
     
     // add Enemy on timing
-    
+    if (isBeatingFrame) {
+        Array<std::pair<double, GameDefine::ePlayerPos>> notes;
+        notes.push_back({beatTime, static_cast<GameDefine::ePlayerPos>(Random(0,5))});
+        notes.push_back({beatTime, static_cast<GameDefine::ePlayerPos>(Random(0,5))});
+        enemyList.push_back(std::make_shared<NormalEnemy>(GameDefine::GameArea.center(), Random(Math::TwoPi), notes, beatTime));
+    }
     
     
     
@@ -43,7 +52,6 @@ bool EnemyManager::update() {
 }
 
 void EnemyManager::draw() const {
-    Print << U"beat " << beatCount;
     for (auto& enemy : enemyList) {
         enemy->draw();
     }
@@ -59,15 +67,16 @@ Array<Circle*> EnemyManager::getCollisions() {
 
 Array<Circle*> EnemyManager::getBulletCollisions() {
     Array<Circle*> enemyBulletCollisions;
-    for (auto& enemy : enemyList) {
-        enemyBulletCollisions.append(enemy->getBulletCollisions());
-    }
     return enemyBulletCollisions;
 }
 
-bool EnemyManager::onBeatingFrame() {
+void EnemyManager::beatUpdate() {
     privTime = nowTime;
     nowTime = std::fmod(trackTimer.sF(), beatTime);
     
-    return privTime > nowTime;
+    if (privTime > nowTime) {
+        isBeatingFrame = true;
+        return;
+    }
+    isBeatingFrame = false;
 }

@@ -36,6 +36,7 @@ namespace GameDefine {
         J,
         K,
         L,
+        NUMOF,
     };
 }
 

@@ -24,17 +24,19 @@ void AbstractEnemy::hit() {
 }
 
 void AbstractEnemy::move() {
-    speed+=0.2;
+    speed+=0.0;
     vel.set(Vec2(speed, 0).rotated(ang));
     pos.moveBy(vel);
     collision.setPos(pos);
 }
 
 void AbstractEnemy::bullet() {
-    for (auto& note : notesInfo) {
-        if (timer.sF() > note.first) {
-            bulletManager.add(pos, GameDefine::PlayerPoses[note.second], arrivalDuration, 1);
-            notesInfo.remove(note);
+    unsigned long notesNum = notesInfo.size();
+    for (int i = 0; i < notesNum; i++) {
+        if (timer.sF() + arrivalDuration > notesInfo.at(i).first) {
+            bulletManager.add(pos, GameDefine::PlayerPoses[notesInfo.at(i).second], arrivalDuration, 1);
+            notesInfo.remove_at(i--);
+            notesNum--;
         }
     }
 }

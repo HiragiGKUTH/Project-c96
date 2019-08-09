@@ -26,6 +26,11 @@ void Game::update() {
         trackAudio.play();
     }
     
+    if (!trackAudio.isPlaying()) {
+        changeScene(U"Title");
+        return;
+    }
+    
     
     enemyManager->update();
     
@@ -49,7 +54,7 @@ void Game::draw() const {
 bool Game::loadNotes() {
     CSVData csv;
 
-    if (csv.load(getData().trackInfo.scorePath)) {
+    if (!csv.load(getData().trackInfo.scorePath)) {
         Logger << U"On Game Scene, fail to load score data";
         return false;
     }

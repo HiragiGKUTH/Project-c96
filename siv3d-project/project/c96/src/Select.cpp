@@ -50,7 +50,12 @@ void Select::update() {
         if (selection_box.getRegion().leftClicked()) {
             getData().trackInfo = track_info[selection_box.getId()];
             changeScene(U"Game");
-        }        
+        }
+        // recording scene
+        if (selection_box.getRegion().rightClicked()) {
+            getData().trackInfo = track_info[selection_box.getId()];
+            changeScene(U"Record");
+        }
     }
 }
 

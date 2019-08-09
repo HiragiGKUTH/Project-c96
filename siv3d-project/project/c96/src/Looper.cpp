@@ -6,6 +6,7 @@
 #include "Title.hpp"
 #include "Select.hpp"
 #include "Game.hpp"
+#include "Record.hpp"
 
 
 
@@ -14,6 +15,7 @@ Looper::Looper() {
     manager.add<Title>(U"Title");
     manager.add<Select>(U"Select");
     manager.add<Game>(U"Game");
+    manager.add<Record>(U"Record");
     manager.setFadeColor(GameInfo::FadeColor);
 }
 
